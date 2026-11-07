@@ -17,7 +17,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY --chown=user . .
 
 EXPOSE 7860
-CMD ["streamlit", "run", "app.py", \
-     "--server.port=7860", "--server.address=0.0.0.0", "--server.headless=true", \
-     "--server.enableCORS=false", "--server.enableXsrfProtection=false", \
-     "--browser.gatherUsageStats=false"]
+# Render sets $PORT; fall back to 7860 for local Docker
+CMD ["sh", "-c", "streamlit run app.py --server.port=${PORT:-7860} --server.address=0.0.0.0 --server.headless=true --server.enableCORS=false --server.enableXsrfProtection=false --browser.gatherUsageStats=false"]
