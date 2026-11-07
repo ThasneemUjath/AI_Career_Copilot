@@ -1,0 +1,8 @@
+.env
+.git
+venv/
+.venv/
+__pycache__/
+career.db
+uploads/
+outputs/

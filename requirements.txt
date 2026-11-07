@@ -1,0 +1,8 @@
+python-dotenv
+groq>=0.13
+streamlit>=1.40
+pymupdf
+pydantic>=2
+mcp<2
+python-docx
+reportlab
