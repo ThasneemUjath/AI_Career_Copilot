@@ -2,7 +2,7 @@
 
 A career assistant that reads your resume, matches it to a job description with an **explainable score**, writes a **tailored resume that is checked for invented facts**, and lets you **practise the interview**. Tools are exposed to an LLM agent through the **Model Context Protocol (MCP)**.
 
-**Live demo:** _add your Render link_ (the free server sleeps when idle, so the first load can take about a minute)  
+**Live demo:** https://ai-career-copilot-6wa9.onrender.com/ (the free server sleeps when idle, so the first load can take about a minute)  
 **Demo video:** _add your video link_
 
 ## What it does
