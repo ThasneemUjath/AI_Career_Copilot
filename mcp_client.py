@@ -19,5 +19,17 @@ async def _call(server: str, tool: str, args: dict) -> str:
             return text
 
 
+def _root_cause(e: BaseException) -> BaseException:
+    """anyio wraps errors in an ExceptionGroup ('unhandled errors in a TaskGroup').
+    Dig out the real one so the message says what actually went wrong."""
+    while getattr(e, "exceptions", None):
+        e = e.exceptions[0]
+    return e
+
+
 def call_tool(server: str, tool: str, args: dict | None = None) -> str:
-    return asyncio.run(_call(server, tool, args or {}))
+    try:
+        return asyncio.run(_call(server, tool, args or {}))
+    except Exception as e:
+        root = _root_cause(e)
+        raise RuntimeError(f"MCP {server}.{tool} failed: {type(root).__name__}: {root}") from None
