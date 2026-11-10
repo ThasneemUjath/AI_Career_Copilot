@@ -61,10 +61,5 @@ docker run -p 7860:7860 -e GROQ_API_KEY=your_key career-copilot
 
 - Matching is keyword-based, so "cloud platforms" does not match "Oracle Cloud". Embeddings would be the upgrade.
 - Two-column resumes: layout detection uses text positions. A wrapped line in a two-column layout can occasionally be read as two items, and tables, text boxes or three columns can break it.
-- The score cap for jobs with two or fewer technical requirements (60), the soft-skill grounding check and the related-terms table are heuristics.
-- LLM extraction can vary between runs. Temperature 0, caching and code cleanup reduce this but do not remove it.
 - Interview grading is an LLM judgement. It is a practice signal, not an exam grade. The follow-up question is shown but not scored.
 - Interview history lasts for the browser session only.
-- PDF export supports Latin, Greek and Cyrillic text and common symbols. Indic scripts are not supported in the PDF (the Word export has no such limit).
-- Each MCP call starts the server fresh, which adds about a second.
-- The free model tier has rate limits, so heavy use can return an error.
